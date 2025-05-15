@@ -1,5 +1,5 @@
-# pip install pypdf
-
+# "pip install pypdf" in cmd (Windows) oder bash (Linux) ausführen
+# Importiert die benötigten Module
 import os
 from pypdf import PdfReader
 
