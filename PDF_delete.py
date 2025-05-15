@@ -1,7 +1,5 @@
-# "pip install pypdf" in cmd (Windows) oder bash (Linux) ausführen
-# Importiert die benötigten Module
 import os
-from pypdf import PdfReader
+from PyPDF2 import PdfReader
 
 # Pfad zum Ordner mit den PDF-Dateien
 ordner = "C:\\Users\\scher\\Desktop\\PDF_PowerShell\\PDF_deleteTest"
