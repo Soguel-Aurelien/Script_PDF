@@ -1,32 +1,25 @@
 import os
 
-def find_pdf_by_name(filename, directory="."): # cherche le pdf mais seulement ds le repertoire actuel
- 
-    # Fait le nom du fichier en ajoutant l'extansion
-    pdf_filename = filename + ".pdf"
-    # On combine le répertoire avec le nom du fichier pour obtenir le chemin complet
-    pdf_path = os.path.join(directory, pdf_filename)
+#cherche le nom en commencant par le dossier actuel
+def find_pdf_by_name(filename, start_directory="."):
     
-    # Vérifie le fichier
-    if os.path.isfile(pdf_path):
-        return pdf_path
-    else:
-        return None
+    pdf_filename = filename.lower() + ".pdf" #convertit en minuscule
+
+    for dirpath, _, filenames in os.walk(start_directory): #cherche dans tout les fichiers du pc
+        for file in filenames:
+            if file.lower() == pdf_filename: #compare tt les PDF avec le nom du fichier
+                return os.path.join(dirpath, file) #donne le chemin complet du PDF
+
+    return None
 
 def search():
-    # User Input
-    user_input = input("Enter the name of the teacher you're searching for: ").strip()
-    
-  
-    
-    # Recherche le pdf
-    pdf_path = find_pdf_by_name(user_input)
-    
+    user_input = input("Enter the PDF name (without extansion) : ").strip()
+    pdf_path = find_pdf_by_name(user_input) #cherche et compare avec le fichier donné
+
     if pdf_path:
-        print("PDF find :", pdf_path)
-        
+        print("PDF founded :", pdf_path)
     else:
-        print("No PDF found!.")
+        print("No PDF founded")
 
 if __name__ == '__main__':
     search()
