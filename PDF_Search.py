@@ -15,12 +15,9 @@ def find_pdf_by_name(filename, directory="."): # cherche le pdf mais seulement d
 
 def search():
     # User Input
-    user_input = input("Enter a 4 letters visan (low case): ").strip()
+    user_input = input("Enter the name of the teacher you're searching for: ").strip()
     
-    # 4 minuscules
-    if len(user_input) != 4 or not user_input.islower():
-        print("Error : Please enter a 4 letter visa.")
-        return
+  
     
     # Recherche le pdf
     pdf_path = find_pdf_by_name(user_input)
